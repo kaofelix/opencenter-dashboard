@@ -44,6 +44,25 @@ module.exports = (grunt) ->
     clean: ["public/"]
 
   grunt.renameTask 'regarde', 'watch'
+
+  grunt.registerTask 'spawnServer', ->
+    fs = require('fs')
+    out = fs.openSync('./dashboard.log', 'a')
+    err = fs.openSync('./dashboard.log', 'a')
+
+    grunt.util.spawn
+      cmd: 'node'
+      args: ['node_modules/node-dev/node-dev', 'dashboard.coffee']
+      opts: stdio: ['ignore', out, err]
+
+    # watch keeps the grunt process open so the server keeps open as well
+    grunt.task.run('watch')
+
+  grunt.registerTask 'server', [
+    'default'
+    'spawnServer'
+  ]
+
   grunt.registerTask 'default', [
     'jade:compile'
     'coffee:compile'
