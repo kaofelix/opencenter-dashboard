@@ -27,6 +27,6 @@ pkill -f "node-dev"
 pkill -f "coffee"
 pkill -f "jade"
 
-node_modules/jade/bin/jade -w views/index.jade --out public &>> jade.log &
+node_modules/jade/bin/jade -w views/ --out public &>> jade.log &
 node_modules/coffee-script/bin/coffee -wco public/js source/coffee &>> coffee.log &
 node_modules/node-dev/node-dev dashboard.coffee &>> dashboard.log &
