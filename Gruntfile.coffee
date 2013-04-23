@@ -34,8 +34,16 @@ module.exports = (grunt) ->
           src: "**"
           dest: "public/img/"
         ]
+    watch:
+      coffee:
+        files: ['source/coffee/**/*.coffee'],
+        tasks: ['coffee:compile']
+      jade:
+        files: ['views/**/*.jade'],
+        tasks: ['jade:compile']
     clean: ["public/"]
 
+  grunt.renameTask 'regarde', 'watch'
   grunt.registerTask 'default', [
     'jade:compile'
     'coffee:compile'

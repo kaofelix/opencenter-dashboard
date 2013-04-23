@@ -18,6 +18,7 @@
     "grunt-contrib-clean": "~0.4.0",
     "grunt-contrib-copy": "~0.4.0",
     "grunt-contrib-jade": "~0.5.0",
+    "grunt-regarde": "~0.1.1",
     "matchdep": "~0.1.1"
  }
 }
