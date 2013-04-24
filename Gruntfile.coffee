@@ -6,9 +6,9 @@ module.exports = (grunt) ->
       compile:
         files: [
           expand: true,
-          cwd: 'source/coffee/',
-          src: '**/*.coffee',
-          dest: 'public/js/',
+          cwd: 'source/coffee/'
+          src: '**/*.coffee'
+          dest: 'public/js/'
           ext: '.js'
         ]
     jade:
@@ -36,15 +36,15 @@ module.exports = (grunt) ->
         ]
     watch:
       coffee:
-        files: ['source/coffee/**/*.coffee'],
+        files: ['source/coffee/**/*.coffee']
         tasks: ['coffee:compile']
       jade:
-        files: ['views/**/*.jade'],
+        files: ['views/**/*.jade']
         tasks: ['jade:compile']
 
     karma:
       spec:
-        configFile: 'karma.conf.coffee',
+        configFile: 'karma.conf.coffee'
         singleRun: true
 
     clean: ["public/"]
