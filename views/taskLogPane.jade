@@ -20,11 +20,17 @@
 //-
 //-###############################################################################
 
-extends layout
-block content
-  include navbar
-  include templates
-  include taskLogPane
-  // ko template: getTemplate
-  // /ko
-  include footer
+block templates
+  script(type='text/html', id='indexTaskLogPane')
+  #indexTaskLogPane(data-bind='showPane: dashboard.displayTaskLogPane')
+      #taskPane
+        .pane-title= 'Tasks'
+        .pane-notifications(data-bind='foreach: getTaskCounts')
+          .notify(data-bind='css: statusClass, text: count')
+        .pane-contents(data-bind='foreach: wsTasks')
+          .task(data-bind='attr: {"data-id": id}, click: $root.selectTask, css: {active: dash.active()}')
+            .task-status(data-bind='css: dash.statusClass')
+            .task-name(data-bind='text: dash.label')
+      #logPane
+        .pane-title(data-bind='text: getTaskTitle')
+        .pane-contents(data-bind='text: getTaskLog')

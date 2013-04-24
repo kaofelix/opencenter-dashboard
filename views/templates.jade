@@ -88,19 +88,6 @@ block templates
               .draggable.node-name(data-bind='text: name, popper: $data, css: {dragDisable: dash.locked}, attr: {"data-id": id}')
           div(data-bind='template: {name: "indexItemTemplate", foreach: dash.containers}')
 
-    #indexTaskLogPane(data-bind='showPane: dashboard.displayTaskLogPane')
-      #taskPane
-        .pane-title= 'Tasks'
-        .pane-notifications(data-bind='foreach: getTaskCounts')
-          .notify(data-bind='css: statusClass, text: count')
-        .pane-contents(data-bind='foreach: wsTasks')
-          .task(data-bind='attr: {"data-id": id}, click: $root.selectTask, css: {active: dash.active()}')
-            .task-status(data-bind='css: dash.statusClass')
-            .task-name(data-bind='text: dash.label')
-      #logPane
-        .pane-title(data-bind='text: getTaskTitle')
-        .pane-contents(data-bind='text: getTaskLog')
-
     #indexNoConnectionModal.modal.hide.fade(data-keyboard='false', data-backdrop='static', role='dialog', aria-labelledby='indexNoConnectionModal', aria-hidden='true')
       .modal-body
         .warning-section
