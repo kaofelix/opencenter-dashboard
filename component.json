@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "./dashboard.coffee",
   "dependencies": {
+    "angular": "1.0.6",
     "bootstrap": "2.3.0",
     "jquery": "1.9.1",
     "jquery-ui": "1.10.0",
@@ -10,5 +11,8 @@
     "knockout": "2.2.1",
     "knockout-mapping": "latest",
     "knockout-sortable": "latest"
+  },
+  "devDependencies" : {
+    "angular-mocks": "~1.0.5"
   }
 }

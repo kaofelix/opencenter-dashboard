@@ -1,8 +1,9 @@
 files = [
-  MOCHA
-  MOCHA_ADAPTER
-  'source/js/angular.min.js'
+  JASMINE
+  JASMINE_ADAPTER
+  'components/angular/angular.js'
+  'components/angular-mocks/angular-mocks.js'
   'source/coffee/**/*-angular.coffee'
-  'test/spec/**/*.js'
+  'test/spec/**/*.coffee'
 ]
 browsers = ['PhantomJS']
