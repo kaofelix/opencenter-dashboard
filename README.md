@@ -87,7 +87,14 @@ it, you need to install it by doing:
 
     npm install -g grunt grunt-cli
 
-Right now there are two main tasks that are useful:
+After that, make sure you have all needed npm dependencies installed
+by running
+
+    npm install
+
+at the root of the project directory.
+
+Right now there are two main `grunt` tasks that are useful:
 
     grunt server
     
