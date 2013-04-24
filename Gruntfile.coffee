@@ -41,6 +41,12 @@ module.exports = (grunt) ->
       jade:
         files: ['views/**/*.jade'],
         tasks: ['jade:compile']
+
+    karma:
+      spec:
+        configFile: 'karma.conf.coffee',
+        singleRun: true
+
     clean: ["public/"]
 
   grunt.renameTask 'regarde', 'watch'
