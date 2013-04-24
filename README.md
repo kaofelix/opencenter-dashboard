@@ -78,6 +78,28 @@ You can watch the various logs in parallel for easy debugging.
 
     tail -f *.log
 
+Using Grunt
+---
+
+The project now includes a `Gruntfile.coffee` which lets you use
+[Grunt](http://gruntjs.com/) to run different tasks. In order to use
+it, you need to install it by doing:
+
+    npm install -g grunt grunt-cli
+
+Right now there are two main tasks that are useful:
+
+    grunt server
+    
+Will build the necessary coffee and jade files and run the development
+server while also watching for changes.
+
+    grunt karma
+    
+This will use the [Karma test runner](http://karma-runner.github.io)
+to run [Jasmine](http://pivotal.github.io/jasmine/) specs for the
+project.
+
 SSL
 ---
 
