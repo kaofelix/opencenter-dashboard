@@ -77,6 +77,7 @@ module.exports = (grunt) ->
   ]
 
   grunt.registerTask 'default', [
+    'clean'
     'jade:compile'
     'coffee:compile'
     'copy:main'
