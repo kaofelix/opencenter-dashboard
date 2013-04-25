@@ -7,7 +7,7 @@ node_modules
 components
 public
 logs/*
-
+.tmp/
 config.js
 config.json
 
