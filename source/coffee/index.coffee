@@ -344,12 +344,6 @@ $ ->
       $(element).closest('.control-group').removeClass('success').addClass('error')
     success: (element) ->
       $(element).closest('.control-group').removeClass('error').addClass('success')
-    submitHandler: (form) ->
-      group = $(form).find('.control-group')
-      user = group.first().find('input')
-      pass = group.next().find('input')
-      angular.element($("#banner")).scope().makeBasicAuth user.val(), pass.val()
-      angular.element($("#banner")).scope().$apply()
 
   ko.bindingHandlers.showPane =
     init: (el, data) ->

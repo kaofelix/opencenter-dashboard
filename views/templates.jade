@@ -120,24 +120,3 @@ block templates
           button.btn.btn-small.btn-primary.next(data-slide="next", href='#multiStepForm')= "Next Step >"
           button.btn.btn-small.btn-primary.submit= "Submit"
           button.cancel.btn-link(type='reset', data-dismiss='modal') Cancel
-
-    #indexLoginModal.modal.hide.fade(data-keyboard='false', data-backdrop='static', role='dialog', aria-labelledby='indexLoginModal', aria-hidden='true')
-      .modal-body
-        .login-container.row-fluid
-          #rackspace-logo-container
-          #login-form
-            form#loginForm.error-icon-only
-              span.welcome-message= "Welcome to the OpenCenter Control Panel!"
-              .alert.alert-error.hide= "Invalid username and/or password"
-              .control-group
-                  label.control-label(for='username')= "Username"
-                  .controls
-                    input(type='text', name='username', required='true')
-              .control-group
-                  label.control-label(for='password')= "Password"
-                  .controls
-                    input(type='password', name='password', required='true')
-              #login-status
-                .form-actions
-                  button.login-button(type='submit')= "Login"
-                  span.form-throb.hide

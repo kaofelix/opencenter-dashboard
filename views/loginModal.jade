@@ -1,0 +1,21 @@
+block loginModal
+  #indexLoginModal.modal.hide.fade(data-keyboard='false', data-backdrop='static', role='dialog', aria-labelledby='indexLoginModal', aria-hidden='true', ng-controller='LoginCtrl')
+    .modal-body
+      .login-container.row-fluid
+        #rackspace-logo-container
+        #login-form
+          form#loginForm.error-icon-only(ng-submit='login()')
+            span.welcome-message= "Welcome to the OpenCenter Control Panel!"
+            .alert.alert-error.hide= "Invalid username and/or password"
+            .control-group
+                label.control-label(for='username')= "Username"
+                .controls
+                  input(type='text', ng-model='username', required='true')
+            .control-group
+                label.control-label(for='password')= "Password"
+                .controls
+                  input(type='password', ng-model='password', required='true')
+            #login-status
+              .form-actions
+                button.login-button(type='submit')= "Login"
+              span.form-throb.hide

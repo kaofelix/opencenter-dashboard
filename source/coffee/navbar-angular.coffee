@@ -1,4 +1,4 @@
-app = angular.module('OpenCenterDashboardApp', [])
+app = angular.module('OpenCenterDashboardApp')
 
 app.controller 'NavBarCtrl', ($scope) ->
   $scope.authUser = ""
