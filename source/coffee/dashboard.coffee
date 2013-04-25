@@ -162,6 +162,13 @@ dashboard.killRequests = (match) ->
 dashboard.authHeader = ->
   angular.element($("#banner")).scope()?.authHeader ? {}
 
+dashboard.clearIndexModel = ->
+  model = dashboard.indexModel
+  model.keyItems = {}
+  model.tmpItems []
+  # Try grabbing new nodes; will trigger login form if needed
+  dashboard.getNodes "/octr/nodes/", model.tmpItems, model.keyItems
+
 # AJAX wrapper which auto-retries on error
 dashboard.ajax = (type, url, data, success, error, timeout, statusCode) ->
   req = ->

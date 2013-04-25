@@ -8,13 +8,9 @@ module.exports = (grunt) ->
           expand: true,
           cwd: 'source/coffee/'
           src: '**/*.coffee'
-          dest: '.tmp/js/'
+          dest: 'public/js/'
           ext: '.js'
         ]
-    concat:
-      js:
-        files:
-          { 'public/js/opencenter-dashboard.js': ['.tmp/**/*.js'] }
     jade:
       compile:
         files: [
@@ -83,6 +79,5 @@ module.exports = (grunt) ->
   grunt.registerTask 'default', [
     'jade:compile'
     'coffee:compile'
-    'concat'
     'copy:main'
   ]
