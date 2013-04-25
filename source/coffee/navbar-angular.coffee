@@ -36,7 +36,7 @@ app.controller 'NavBarCtrl', ($scope) ->
 
     $.ajax # Test the auth
       url: "/octr/"
-      headers: dashboard.authHeader()
+      headers: $scope.authHeader
       success: ->
         dashboard.loggingIn = false # Done logging in
         resetForm()
