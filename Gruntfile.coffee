@@ -14,7 +14,11 @@ module.exports = (grunt) ->
     jade:
       compile:
         files: [
-          "public/index.html": ["views/*.jade"]
+          expand: true,
+          cwd: 'views/'
+          src: '**/*.jade'
+          dest: 'public/'
+          ext: '.html'
         ]
     copy:
       main:
