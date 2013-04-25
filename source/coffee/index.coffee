@@ -100,7 +100,7 @@ $ ->
           url = "/octr/tasks/#{id}/logs/#{data.request}"
           xhr = new XMLHttpRequest()
           xhr.open "GET", url
-          xhr.setRequestHeader('Authorization', dashboard.authHeader.Authorization)
+          xhr.setRequestHeader('Authorization', dashboard.authHeader()['Authorization'])
           xhr.onloadstart = ->
             dashboard.pendingRequests[url] = xhr # Store
           xhr.onprogress = =>
@@ -345,30 +345,11 @@ $ ->
     success: (element) ->
       $(element).closest('.control-group').removeClass('error').addClass('success')
     submitHandler: (form) ->
-      form = $(form)
-      group = form.find('.control-group')
+      group = $(form).find('.control-group')
       user = group.first().find('input')
       pass = group.next().find('input')
-      throb = form.find('.form-throb')
-      resetForm = ->
-        throb.hide()
-        group.find('input').val ""
-        group.removeClass ['error', 'success']
-        group.find('.controls label').remove()
-      dashboard.makeBasicAuth user.val(), pass.val()
-      throb.show()
-      $.ajax # Test the auth
-        url: "/octr/"
-        headers: dashboard.authHeader
-        success: ->
-          dashboard.loggingIn = false # Done logging in
-          resetForm()
-          form.find('.alert').hide()
-          dashboard.hideModal "#indexLoginModal"
-        error: ->
-          resetForm()
-          form.find('.alert').show()
-          user.focus()
+      angular.element($("#banner")).scope().makeBasicAuth user.val(), pass.val()
+      angular.element($("#banner")).scope().$apply()
 
   ko.bindingHandlers.showPane =
     init: (el, data) ->

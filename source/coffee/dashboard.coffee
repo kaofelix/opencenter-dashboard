@@ -92,27 +92,6 @@ dashboard.siteEnable = -> dashboard.siteEnabled true
 # Toggle task/log pane
 dashboard.displayTaskLogPane = ko.observable false
 
-# Fill in auth header with user/pass
-dashboard.makeBasicAuth = (user, pass) ->
-  dashboard.authUser user
-  token = "#{user}:#{pass}"
-  dashboard.authHeader = Authorization: "Basic #{btoa token}"
-
-# Auth bits
-dashboard.authHeader = {}
-dashboard.authUser = ko.observable ""
-dashboard.authCheck = ko.computed ->
-  if dashboard.authUser() isnt "" then true else false
-dashboard.authLogout = ->
-  # Clear out all the things
-  model = dashboard.indexModel
-  dashboard.authHeader = {}
-  dashboard.authUser ""
-  model.keyItems = {}
-  model.tmpItems []
-  # Try grabbing new nodes; will trigger login form if needed
-  dashboard.getNodes "/octr/nodes/", model.tmpItems, model.keyItems
-
 # Guard to spin requests while logging in
 dashboard.loggingIn = false
 
@@ -180,6 +159,9 @@ dashboard.killRequests = (match) ->
     if match.test k
       v.abort()
 
+dashboard.authHeader = ->
+  angular.element($("#banner")).scope()?.authHeader ? {}
+
 # AJAX wrapper which auto-retries on error
 dashboard.ajax = (type, url, data, success, error, timeout, statusCode) ->
   req = ->
@@ -190,7 +172,7 @@ dashboard.ajax = (type, url, data, success, error, timeout, statusCode) ->
         type: type
         url: url
         data: data
-        headers: dashboard.authHeader # Add basic auth
+        headers: dashboard.authHeader() # Add basic auth
         success: (data) ->
           dashboard.siteEnable() # Enable site
           dashboard.hideModal "#indexNoConnectionModal" # Hide immediately
