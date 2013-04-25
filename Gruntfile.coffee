@@ -53,8 +53,8 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'spawnServer', ->
     fs = require('fs')
-    out = fs.openSync('./dashboard.log', 'a')
-    err = fs.openSync('./dashboard.log', 'a')
+    out = fs.openSync('.logs/dashboard.log', 'a')
+    err = fs.openSync('.logs/dashboard.log', 'a')
 
     grunt.util.spawn
       cmd: 'node'

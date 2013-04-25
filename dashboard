@@ -22,11 +22,12 @@
 ################################################################################
 
 NODE_ENV="${NODE_ENV:-production}"
+LOG_FOLDER="logs"
 
 pkill -f "node-dev"
 pkill -f "coffee"
 pkill -f "jade"
 
-node_modules/jade/bin/jade -w views/ --out public >> jade.log 2>&1 &
-node_modules/coffee-script/bin/coffee -wco public/js source/coffee >> coffee.log 2>&1 &
-node_modules/node-dev/node-dev dashboard.coffee >> dashboard.log 2>&1 &
+node_modules/jade/bin/jade -w views/ --out public >> $LOG_FOLDER/jade.log 2>&1 &
+node_modules/coffee-script/bin/coffee -wco public/js source/coffee >> $LOG_FOLDER/coffee.log 2>&1 &
+node_modules/node-dev/node-dev dashboard.coffee >> $LOG_FOLDER/dashboard.log 2>&1 &
