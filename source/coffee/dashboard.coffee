@@ -188,7 +188,6 @@ dashboard.ajax = (type, url, data, success, error, timeout, statusCode) ->
           retry = error jqXHR, textStatus, errorThrown if error?
           if jqXHR.status is 401 # Unauthorized!
             auth.loggingIn = true # Block other requests
-            dashboard.showModal "#indexLoginModal" # Gimmeh logins
             setTimeout req, 1000 # Requeue this one
           else if retry is true and type is "GET" # Opted in and not a POST
             setTimeout req, req.backoff # Retry with incremental backoff

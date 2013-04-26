@@ -4,6 +4,7 @@
   "main": "./dashboard.coffee",
   "dependencies": {
     "angular": "1.0.6",
+    "angular-ui-bootstrap-bower": "0.2.0",
     "bootstrap": "2.3.0",
     "jquery": "1.9.1",
     "jquery-ui": "1.10.0",

@@ -28,7 +28,6 @@ app.factory 'auth', ($rootScope, dashboardService) ->
         headers: auth.header
         success: ->
           auth.loggingIn = false # Done logging in
-          dashboardService.hideModal "#indexLoginModal"
           resetForm()
           form.find('.alert').hide()
           $rootScope.$broadcast 'login', auth.user
@@ -41,5 +40,6 @@ app.factory 'auth', ($rootScope, dashboardService) ->
       auth.user = ""
       auth.header = {}
       dashboardService.clearIndexModel()
+      $rootScope.$broadcast 'logout'
 
   auth
