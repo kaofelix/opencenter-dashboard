@@ -58,6 +58,8 @@ module.exports = (grunt) ->
 
   grunt.renameTask 'regarde', 'watch'
 
+  grunt.registerTask('test', ['karma'])
+
   grunt.registerTask 'spawnServer', ->
     fs = require('fs')
     out = fs.openSync('./logs/dashboard.log', 'a')
