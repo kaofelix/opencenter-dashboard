@@ -54,12 +54,17 @@ module.exports = (grunt) ->
         basePath: '../'
         configFile: 'config/karma.conf.coffee'
         autoWatch: true
+      travis:
+        basePath: '../'
+        configFile: 'config/karma.conf.coffee'
+        autoWatch: false
+        singleRun: true
 
     clean: ["public/"]
 
   grunt.renameTask 'regarde', 'watch'
 
-  grunt.registerTask('test', ['karma'])
+  grunt.registerTask('test', ['karma:spec'])
 
   grunt.registerTask 'spawnServer', ->
     fs = require('fs')
