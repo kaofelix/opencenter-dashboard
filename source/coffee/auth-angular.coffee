@@ -1,6 +1,6 @@
 app = angular.module('OpenCenterDashboardApp')
 
-app.factory 'auth', ->
+app.factory 'auth', ($rootScope) ->
   auth =
     authUser: ""
     authHeader: {}
@@ -30,6 +30,7 @@ app.factory 'auth', ->
           resetForm()
           form.find('.alert').hide()
           dashboard.hideModal "#indexLoginModal"
+          $rootScope.$broadcast 'login', auth.authUser
         error: ->
           resetForm()
           form.find('.alert').show()

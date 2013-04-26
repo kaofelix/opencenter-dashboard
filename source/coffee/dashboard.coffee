@@ -160,7 +160,7 @@ dashboard.killRequests = (match) ->
       v.abort()
 
 dashboard.authHeader = ->
-  angular.element($("#banner")).scope()?.authHeader ? {}
+  angular.element(document.body).injector().get('auth').authHeader ? {}
 
 dashboard.clearIndexModel = ->
   model = dashboard.indexModel

@@ -26,7 +26,7 @@ block navbar
       li#user-menu.menu
         a(href="http://www.rackspace.com/knowledge_center/getting-started/rackspace-private-cloud", target="_blank") Knowledge Center
         a(href="https://privatecloudforums.rackspace.com/", target="_blank") Forums
-        a(href="#", ng-show="authCheck()", ng-click="authLogout()") {{ authUser }} (Logout)
+        a(href="#", ng-show="authCheck()", ng-click="logout()") {{ authUser }} (Logout)
     .navbar-inner
       .container-fluid
         #logo-wrapper
