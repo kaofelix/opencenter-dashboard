@@ -22,7 +22,7 @@
 
 block templates
   script(type='text/html', id='indexTaskLogPane')
-  #indexTaskLogPane(data-bind='showPane: dashboard.displayTaskLogPane')
+  #indexTaskLogPane(ng-controller="TaskLogPaneCtrl", ng-show="showPane()")
       #taskPane
         .pane-title= 'Tasks'
         .pane-notifications(data-bind='foreach: getTaskCounts')

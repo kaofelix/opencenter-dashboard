@@ -21,8 +21,8 @@
 //-###############################################################################
 
 block footer
-  #footer-wrapper
-    #tasklog-toggle(data-bind='click: $root.toggleTaskLogPane')
+  #footer-wrapper(ng-controller="FooterCtrl")
+    #tasklog-toggle(ng-click="togglePane()")
       .pane-title
         span.menu-lines
         | Tasks
