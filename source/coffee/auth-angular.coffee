@@ -1,6 +1,6 @@
 app = angular.module('OpenCenterDashboardApp')
 
-app.factory 'auth', ($rootScope) ->
+app.factory 'auth', ($rootScope, dashboardService) ->
   auth =
     user: ""
     header: {}
@@ -26,10 +26,10 @@ app.factory 'auth', ($rootScope) ->
         url: "/octr/"
         headers: auth.header
         success: ->
-          dashboard.loggingIn = false # Done logging in
+          dashboardService.loggingIn = false # Done logging in
           resetForm()
           form.find('.alert').hide()
-          dashboard.hideModal "#indexLoginModal"
+          dashboardService.hideModal "#indexLoginModal"
           $rootScope.$broadcast 'login', auth.user
         error: ->
           resetForm()
@@ -39,6 +39,6 @@ app.factory 'auth', ($rootScope) ->
     logout: ->
       auth.user = ""
       auth.header = {}
-      dashboard.clearIndexModel()
+      dashboardService.clearIndexModel()
 
   auth
