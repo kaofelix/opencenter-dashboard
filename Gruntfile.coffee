@@ -52,7 +52,7 @@ module.exports = (grunt) ->
     karma:
       spec:
         configFile: 'karma.conf.coffee'
-        singleRun: true
+        autoWatch: true
 
     clean: ["public/"]
 
