@@ -1,21 +1,20 @@
 app = angular.module('OpenCenterDashboardApp')
 
 app.controller 'NavBarCtrl', ($scope, auth) ->
-  $scope.authUser = ""
+  $scope.username = ""
 
-  $scope.authCheck =  ->
-    if $scope.authUser isnt "" then true else false
+  $scope.isLoggedIn =  ->
+    if $scope.username isnt "" then true else false
+
+  $scope.$on 'login', (ev, username) ->
+    $scope.username = username
+    $scope.$apply()
 
   $scope.logout = ->
-    $scope.authUser = ""
-    $scope.authHeader = {}
-    dashboard.clearIndexModel()
+    $scope.username = ""
+    auth.logout()
 
   $scope.siteNav = [
     name: "OpenCenter"
     template: "indexTemplate"
   ]
-
-  $scope.$on 'login', (ev, username) ->
-    $scope.authUser = username
-    $scope.$apply()

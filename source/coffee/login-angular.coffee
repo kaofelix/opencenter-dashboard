@@ -1,8 +1,8 @@
 app = angular.module('OpenCenterDashboardApp')
 
-app.controller 'LoginCtrl', ($scope, auth) ->
+app.controller 'LoginFormCtrl', ($scope, auth) ->
   $scope.username = ''
   $scope.password = ''
 
   $scope.login = ->
-    auth.makeBasicAuth $scope.username, $scope.password
+    auth.login $scope.username, $scope.password

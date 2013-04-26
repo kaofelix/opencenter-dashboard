@@ -2,13 +2,13 @@ app = angular.module('OpenCenterDashboardApp')
 
 app.factory 'auth', ($rootScope) ->
   auth =
-    authUser: ""
-    authHeader: {}
+    user: ""
+    header: {}
 
-    makeBasicAuth: (user, pass) ->
+    login: (user, pass) ->
       token = "#{user}:#{pass}"
-      auth.authUser = user
-      auth.authHeader = Authorization: "Basic #{btoa token}"
+      auth.user = user
+      auth.header = Authorization: "Basic #{btoa token}"
 
       form = $(form)
       group = form.find('.control-group')
@@ -24,15 +24,21 @@ app.factory 'auth', ($rootScope) ->
 
       $.ajax # Test the auth
         url: "/octr/"
-        headers: auth.authHeader
+        headers: auth.header
         success: ->
           dashboard.loggingIn = false # Done logging in
           resetForm()
           form.find('.alert').hide()
           dashboard.hideModal "#indexLoginModal"
-          $rootScope.$broadcast 'login', auth.authUser
+          $rootScope.$broadcast 'login', auth.user
         error: ->
           resetForm()
           form.find('.alert').show()
           user.focus()
+
+    logout: ->
+      auth.user = ""
+      auth.header = {}
+      dashboard.clearIndexModel()
+
   auth
