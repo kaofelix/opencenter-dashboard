@@ -42,9 +42,9 @@ module.exports = (grunt) ->
       coffee:
         files: ['source/coffee/**/*.coffee']
         tasks: ['coffee:compile']
-      concat:
-        files: ['.tmp/js/**/*.js']
-        tasks: ['concat:js']
+      copy:
+        files: ['source/js/**', 'source/css/**', 'source/img/**']
+        tasks: ['copy']
       jade:
         files: ['views/**/*.jade']
         tasks: ['jade:compile']
