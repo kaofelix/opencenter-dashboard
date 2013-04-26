@@ -92,9 +92,6 @@ dashboard.siteEnable = -> dashboard.siteEnabled true
 # Toggle task/log pane
 dashboard.displayTaskLogPane = ko.observable false
 
-# Guard to spin requests while logging in
-dashboard.loggingIn = false
-
 dashboard.drawStepProgress = ->
   $form = $("form#inputForm")
   $multiStepForm = $form.find(".carousel")
@@ -172,7 +169,9 @@ dashboard.clearIndexModel = ->
 # AJAX wrapper which auto-retries on error
 dashboard.ajax = (type, url, data, success, error, timeout, statusCode) ->
   req = ->
-    if dashboard.loggingIn # If logging in
+    auth = angular.element(document.body).injector().get('auth')
+
+    if auth.loggingIn # If logging in
       setTimeout req, 1000 # Spin request
     else
       dashboard.pendingRequests[url] = $.ajax # Call and store request
@@ -188,7 +187,7 @@ dashboard.ajax = (type, url, data, success, error, timeout, statusCode) ->
         error: (jqXHR, textStatus, errorThrown) ->
           retry = error jqXHR, textStatus, errorThrown if error?
           if jqXHR.status is 401 # Unauthorized!
-            dashboard.loggingIn = true # Block other requests
+            auth.loggingIn = true # Block other requests
             dashboard.showModal "#indexLoginModal" # Gimmeh logins
             setTimeout req, 1000 # Requeue this one
           else if retry is true and type is "GET" # Opted in and not a POST
