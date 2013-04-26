@@ -8,7 +8,6 @@ app.controller 'NavBarCtrl', ($scope, auth) ->
 
   $scope.$on 'login', (ev, username) ->
     $scope.username = username
-    $scope.$apply()
 
   $scope.logout = ->
     $scope.username = ""

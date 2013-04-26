@@ -4,8 +4,6 @@ describe 'Controller: NavBarCtrl', ->
   # Initialize the controller and a mock scope
   beforeEach inject ($controller, $rootScope) ->
     @scope = $rootScope.$new()
-    spyOn(@scope, '$apply')
-
     @auth = { logout: jasmine.createSpy('logout') }
 
     @NavBarCtrl = $controller 'NavBarCtrl',
@@ -16,7 +14,6 @@ describe 'Controller: NavBarCtrl', ->
     @scope.$broadcast 'login', "someuser"
 
     expect(@scope.isLoggedIn()).toBe(true)
-    expect(@scope.$apply).toHaveBeenCalled()
 
   it 'should logout the user', ->
     @scope.logout()

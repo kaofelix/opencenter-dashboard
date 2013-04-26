@@ -4,6 +4,7 @@ app.factory 'auth', ($rootScope, dashboardService) ->
   auth =
     user: ""
     header: {}
+    loggingIn: false
 
     login: (user, pass) ->
       token = "#{user}:#{pass}"
@@ -26,10 +27,9 @@ app.factory 'auth', ($rootScope, dashboardService) ->
         url: "/octr/"
         headers: auth.header
         success: ->
-          dashboardService.loggingIn = false # Done logging in
+          auth.loggingIn = false # Done logging in
           resetForm()
           form.find('.alert').hide()
-          dashboardService.hideModal "#indexLoginModal"
           $rootScope.$broadcast 'login', auth.user
         error: ->
           resetForm()
@@ -40,5 +40,6 @@ app.factory 'auth', ($rootScope, dashboardService) ->
       auth.user = ""
       auth.header = {}
       dashboardService.clearIndexModel()
+      $rootScope.$broadcast 'logout'
 
   auth

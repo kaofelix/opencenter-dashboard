@@ -1,5 +1,5 @@
 block loginModal
-  #indexLoginModal.modal.hide.fade(data-keyboard='false', data-backdrop='static', role='dialog', aria-labelledby='indexLoginModal', aria-hidden='true', ng-controller='LoginFormCtrl')
+  div.hide(ng-controller="LoginFormCtrl", modal="!isLoggedIn", options="modalOptions")
     .modal-body
       .login-container.row-fluid
         #rackspace-logo-container
@@ -10,7 +10,7 @@ block loginModal
             .control-group
                 label.control-label(for='username')= "Username"
                 .controls
-                  input(type='text', ng-model='username', required='true')
+                  input(type='text', ng-model='username', required='true', autofocus)
             .control-group
                 label.control-label(for='password')= "Password"
                 .controls
@@ -18,4 +18,4 @@ block loginModal
             #login-status
               .form-actions
                 button.login-button(type='submit')= "Login"
-              span.form-throb.hide
+            span.form-throb.hide

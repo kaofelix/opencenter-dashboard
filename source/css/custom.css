@@ -243,11 +243,11 @@ Header
 /****************
 Login Form
 ****************/
-#indexLoginModal {
+.indexLoginModal {
   width: 656px;
   margin-left: -328px;
 }
-#indexLoginModal .modal-body {
+.indexLoginModal .modal-body {
   padding: 0px;
 }
 #rackspace-logo-container {

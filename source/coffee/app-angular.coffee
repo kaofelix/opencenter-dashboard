@@ -1,1 +1,1 @@
-angular.module('OpenCenterDashboardApp', [])
+angular.module('OpenCenterDashboardApp', ['ui.bootstrap'])
