@@ -1,9 +1,9 @@
 files = [
   JASMINE
   JASMINE_ADAPTER
-  'components/angular/angular.js'
-  'components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js'
-  'components/angular-mocks/angular-mocks.js'
+  'source/js/angular.min.js'
+  'source/js/ui-bootstrap-tpls-0.2.0.min.js'
+  'test/lib/angular-mocks.js'
   'source/coffee/**/*-angular.coffee'
   'test/spec/**/*.coffee'
 ]
