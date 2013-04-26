@@ -81,31 +81,52 @@ You can watch the various logs in parallel for easy debugging.
 Using Grunt
 ---
 
+### Installing Dependencies
+
+
 The project now includes a `Gruntfile.coffee` which lets you use
 [Grunt](http://gruntjs.com/) to run different tasks. In order to use
 it, you need to install it by doing:
 
     npm install -g grunt grunt-cli
 
-After that, make sure you have all needed npm dependencies installed
+Also install [`bower`](http://bower.io) by running
+
+    npm install -g bower
+
+so you can install client side javascript dependencies.
+
+After that, make sure you have all needed dependencies installed
 by running
 
     npm install
+    bower install
 
-at the root of the project directory.
+at the root of the project directory. 
 
-Right now there are two main `grunt` tasks that are useful:
+### Grunt workflow
+
+After that you should be able to run grunt tasks. Running
+
+    grunt
+
+will build the website on the `./public` directory at the root of the
+project.
 
     grunt server
     
 Will build the necessary coffee and jade files and run the development
 server while also watching for changes.
 
-    grunt karma
+    grunt test
     
-This will use the [Karma test runner](http://karma-runner.github.io)
+Will use the [Karma test runner](http://karma-runner.github.io)
 to run [Jasmine](http://pivotal.github.io/jasmine/) specs for the
 project.
+
+    grunt clean
+
+Will remove the `./public` folder so you can start fresh if you want.
 
 SSL
 ---
