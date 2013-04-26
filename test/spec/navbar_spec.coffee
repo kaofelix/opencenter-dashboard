@@ -11,9 +11,9 @@ describe 'Controller: NavBarCtrl', ->
       auth: @auth
 
   it 'should check that the user is logged in', ->
-    @auth.user = -> "Some user"
-    expect(@scope.authCheck()).toBe(true)
+    @scope.username = "Some user"
+    expect(@scope.isLoggedIn()).toBe(true)
 
   it 'should check that the user is logged out', ->
-    @auth.user = -> ""
-    expect(@scope.authCheck()).toBe(false)
+    @scope.username = ""
+    expect(@scope.isLoggedIn()).toBe(false)
