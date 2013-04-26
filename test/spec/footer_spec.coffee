@@ -4,10 +4,10 @@ describe 'Controller: FooterCtrl', ->
   # Initialize the controller and a mock scope
   beforeEach inject ($controller, $rootScope) ->
     @scope = $rootScope.$new()
-    @pane_notification = { toggle: jasmine.createSpy('toggle') }
+    @pane_notification = {}
     @ctrl = $controller 'FooterCtrl',
       $scope: @scope
       paneNotification: @pane_notification
 
-  it 'should have a toggle property', ->
-    expect(@scope.togglePane).toBe(@pane_notification.toggle)
+  it 'should have a paneNotification service', ->
+    expect(@scope.paneNotification).toBe(@pane_notification)
