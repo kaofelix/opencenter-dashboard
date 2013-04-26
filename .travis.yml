@@ -4,4 +4,3 @@ node_js:
 before_script:
     - export PATH=$PATH:`npm bin`
     - bower install
-script: "grunt karma:travis"

@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node-dev dashboard.coffee"
+    "start": "node-dev dashboard.coffee",
+    "test": "grunt karma:travis"
   },
   "dependencies": {
     "coffee-script": "1.5.0",
