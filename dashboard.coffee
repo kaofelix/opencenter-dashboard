@@ -19,7 +19,7 @@
 # specific language governing permissions and limitations under the License.
 #
 # ###############################################################################
- 
+
 # Globals
 fs = require "fs"
 url = require "url"
@@ -29,11 +29,6 @@ https = require "https"
 express = require "express"
 httpProxy = require "http-proxy"
 config = require "./config.json"
-
-# Watch and copy CSS until we're using a watchful CSS compiler
-fs.watch "source/css/custom.css", {}, (event) ->
-  if event is "change"
-    fs.createReadStream("source/css/custom.css").pipe fs.createWriteStream("public/css/custom.css")
 
 # App
 app = express()
