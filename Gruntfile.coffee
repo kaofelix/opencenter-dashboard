@@ -51,7 +51,8 @@ module.exports = (grunt) ->
 
     karma:
       spec:
-        configFile: 'karma.conf.coffee'
+        basePath: '../'
+        configFile: 'config/karma.conf.coffee'
         autoWatch: true
 
     clean: ["public/"]
