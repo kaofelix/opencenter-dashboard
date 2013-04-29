@@ -9,9 +9,6 @@ describe 'Controller: TaskLogPaneCtrl', ->
       $scope: @scope
       paneNotification: @pane_notification
   
-  it 'should be able to read pane visibility', ->
-    @pane_notification.display = true
-    expect(@scope.showPane()).toBe(true)
-    @pane_notification.display = false
-    expect(@scope.showPane()).toBe(false)
+  it 'should be able to access paneNotification service', ->
+    expect(@scope.paneNotification).not.toBeUndefined()
     
