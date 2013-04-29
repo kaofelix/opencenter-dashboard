@@ -6,12 +6,12 @@ app.factory 'auth', ($rootScope, dashboardService) ->
     header: {}
     loggingIn: false
 
-    login: (user, pass) ->
+    tryLogin: (user, pass) ->
       token = "#{user}:#{pass}"
       auth.user = user
       auth.header = Authorization: "Basic #{btoa token}"
 
-      form = $(form)
+      form = $('#loginForm')
       group = form.find('.control-group')
       user = group.first().find('input')
       pass = group.next().find('input')
@@ -29,12 +29,11 @@ app.factory 'auth', ($rootScope, dashboardService) ->
         success: ->
           auth.loggingIn = false # Done logging in
           resetForm()
-          form.find('.alert').hide()
           $rootScope.$broadcast 'login', auth.user
         error: ->
           resetForm()
-          form.find('.alert').show()
           user.focus()
+          $rootScope.$broadcast 'loginFailed', auth.user
 
     logout: ->
       auth.user = ""

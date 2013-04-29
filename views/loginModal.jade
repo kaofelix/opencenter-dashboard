@@ -4,9 +4,9 @@ block loginModal
       .login-container.row-fluid
         #rackspace-logo-container
         #login-form
-          form#loginForm.error-icon-only(ng-submit='login()')
+          form#loginForm.error-icon-only(ng-submit='tryLogin()')
             span.welcome-message= "Welcome to the OpenCenter Control Panel!"
-            .alert.alert-error.hide= "Invalid username and/or password"
+            .alert.alert-error(ng-show="loginFailed")= "Invalid username and/or password"
             .control-group
                 label.control-label(for='username')= "Username"
                 .controls

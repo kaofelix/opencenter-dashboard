@@ -5,13 +5,20 @@ app.controller 'LoginFormCtrl', ($scope, auth) ->
   $scope.password = ''
 
   $scope.isLoggedIn = false
+  $scope.loginFailed = false
 
-  $scope.login = ->
-    auth.login $scope.username, $scope.password
+  $scope.tryLogin = ->
+    auth.tryLogin $scope.username, $scope.password
+    $scope.loginFailed = false
     $scope.isLoggedIn = true
 
   $scope.$on 'logout', ->
     $scope.isLoggedIn = false
+    $scope.loginFailed = false
+
+  $scope.$on 'loginFailed', ->
+    $scope.isLoggedIn = false
+    $scope.loginFailed = true
 
   $scope.modalOptions =
     dialogClass: 'indexLoginModal modal'
