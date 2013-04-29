@@ -38,6 +38,8 @@ module.exports = (grunt) ->
           src: "**"
           dest: "public/img/"
         ]
+      publish:
+        files: 'public/api/config': ['config.json.sample']
     watch:
       coffee:
         files: ['source/coffee/**/*.coffee']
@@ -89,4 +91,10 @@ module.exports = (grunt) ->
     'jade:compile'
     'coffee:compile'
     'copy:main'
+  ]
+
+  grunt.registerTask 'publish', [
+    'clean'
+    'default'
+    'copy:publish'
   ]
