@@ -1,6 +1,8 @@
 Support
 =======
 
+[![Build Status](https://travis-ci.org/kaofelix/opencenter-dashboard.png)](https://travis-ci.org/kaofelix/opencenter-dashboard)
+
 Issues have been disabled for this repository.  
 Any issues with this cookbook should be raised here:
 
