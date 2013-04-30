@@ -24,9 +24,10 @@ with more hipsterstack!
 Installation
 ---
 
-First, you'll need to install a relatively recent version of Node.js and
-npm. The easiest way to accomplish this is by installing nvm, a Node version
-manager similar to rvm.
+First, you'll need to install a relatively recent version of Node.js
+and npm. The easiest way to accomplish this is by installing
+[nvm](https://github.com/creationix/nvm), a Node version manager
+similar to rvm.
 
     curl https://raw.github.com/creationix/nvm/master/install.sh | sh
 
@@ -44,7 +45,7 @@ Before proceeding, ensure that `which node` and `which npm` both show
 `/your/home/.nvm/version/bin/binary` or similar, and not `/usr/bin` or some
 other random path in which you may have another node/npm installed.
 
-The project had a `Gruntfile.coffee` and uses
+The project has a `Gruntfile.coffee` and uses
 [Grunt](http://gruntjs.com/) to run different tasks. In order to use
 it, you need to install it by doing:
 
