@@ -16,7 +16,6 @@
   "devDependencies": {
     "bower": "~0.8.6",
     "grunt": "~0.4.1",
-    "grunt-cli": "~0.1.7",
     "grunt-contrib-coffee": "~0.6.4",
     "grunt-contrib-concat": "~0.2.0",
     "grunt-contrib-clean": "~0.4.0",
